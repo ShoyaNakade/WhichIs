@@ -6,11 +6,21 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ContentView: View {
+    init() {
+//        let realm = try! Realm()
+//        let compareTable1 = CompareTable()
+//        
+//        compareTable1.title = "hoge"
+//        try? realm.write {
+//            realm.add(compareTable1)
+//        }
+    }
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ListView()
     }
 }
 
