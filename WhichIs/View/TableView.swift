@@ -11,6 +11,7 @@ struct TableView: View {
     static let columnPadding: CGFloat = 5
     let columnWidth = (UIScreen.screenWidth / 3 ) - columnPadding
     var table = CompareTable()
+
     
     init() {
 //        table.resetCol()
@@ -25,17 +26,7 @@ struct TableView: View {
                         HStack(spacing:0) {
                             ForEach( 0 ..< table.columns[rownum].count) { linenum in
                                 // 列数
-                                VStack {
-                                    Text(table.columns[rownum][linenum].content)
-                                        .foregroundColor(table.columns[rownum][linenum].fontColor == "strong" ? .red : .black)
-//                                        .foregroundColor(Color("\(table.columns[rownum][linenum].fontColor)"))
-//                                        .foregroundColor(Color("#1e1e1e"))
-
-                                        .padding()
-                                    
-                                }
-                                .frame(width: columnWidth)
-                                .border(.blue)
+                                ColumnView(column: table.columns[rownum][linenum], columnWidth: columnWidth)
                             }
                         }
                     }
@@ -57,3 +48,4 @@ extension UIScreen{
     static let screenHeight = UIScreen.main.bounds.size.height
     static let screenSize = UIScreen.main.bounds.size
 }
+

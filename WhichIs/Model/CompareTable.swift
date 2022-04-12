@@ -16,16 +16,19 @@ class CompareTable: Decodable, Identifiable {
     var columns: [[Column]]
     
     init() {
-        var columm = Column(content: "yaho")
+//        columnTitle.setTitleColmun()
         
         columns = [
-            [columm, columm, columm],
-            [columm, columm, columm],
-            [columm, columm, columm],
-            [columm, columm, columm]
+            [Column(content: "/"), Column(content:"head1"), Column(content: "head2")],
+            [Column(), Column(), Column()],
+            [Column(), Column(), Column()],
+            [Column(), Column(), Column()],
 //            ["0,0", "0,1","0,2"],
 //            ["1,0", "1,1","1,2"]
         ]
+        
+        
+        setNormalTable()
     }
     
 }
@@ -33,9 +36,20 @@ class CompareTable: Decodable, Identifiable {
 extension CompareTable {
     func resetCol() {
         self.columns = [
-            
-//            ["項目/対象", "比較対象1","比較対象2"],
-//            ["比較項目", "◯","△"]
-        ]
+                [Column(content: "/"), Column(content:"head1"), Column(content: "head2")],
+                [Column(), Column(), Column()],
+            ]
+    }
+    
+    func setNormalTable() {
+        let columnLine = columns.count
+        let columnRow  = columns[0].count
+        
+        for line in (0 ..< columnLine) {
+            self.columns[line][0].backgroundColor = "red"
+        }
+        for row in (0 ..< columnRow) {
+            self.columns[0][row].backgroundColor = "gray"
+        }
     }
 }

@@ -29,15 +29,33 @@ class Column: Decodable {
     }
     
     
-    func fontColorToUI() -> UIColor {
+    func fontColorToUI() -> Color {
         switch self.fontColor {
         case "normal" :
-            return UIColor(Color(.black))
+            return Color(.black)
         case "red" :
-            return UIColor(Color(.red))
+            return Color(.red)
         default:
-            return UIColor(Color(.black))
+            return Color(.black)
             
         }
+    }
+    
+    var bgColorToUI: Color {
+        switch self.backgroundColor {
+        case "normal" :
+            return Color(.white)
+        case "gray" :
+            return Color(.gray)
+        case "red" :
+            return Color(.red)
+        default:
+            return Color(.white)
+            
+        }
+    }
+    
+    func setTitleColmun() {
+        self.backgroundColor = "gray"
     }
 }
