@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4DB7C6C1280638B4006445F0 /* ColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7C6C0280638B4006445F0 /* ColumnView.swift */; };
+		4DB7C6C328083A52006445F0 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7C6C228083A51006445F0 /* TableViewModel.swift */; };
 		4DE575F22800FFF8003ACE12 /* WhichIsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE575F12800FFF8003ACE12 /* WhichIsApp.swift */; };
 		4DE575F42800FFF8003ACE12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE575F32800FFF8003ACE12 /* ContentView.swift */; };
 		4DE575F62800FFFA003ACE12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE575F52800FFFA003ACE12 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		469A6F82F0A6AE295AC7EEE9 /* Pods-WhichIs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhichIs.debug.xcconfig"; path = "Target Support Files/Pods-WhichIs/Pods-WhichIs.debug.xcconfig"; sourceTree = "<group>"; };
 		4DB7C6C0280638B4006445F0 /* ColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnView.swift; sourceTree = "<group>"; };
+		4DB7C6C228083A51006445F0 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		4DE575EE2800FFF8003ACE12 /* WhichIs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhichIs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE575F12800FFF8003ACE12 /* WhichIsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhichIsApp.swift; sourceTree = "<group>"; };
 		4DE575F32800FFF8003ACE12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		4DE57603280113DF003ACE12 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4DB7C6C228083A51006445F0 /* TableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				4DE57605280113F9003ACE12 /* TableView.swift in Sources */,
 				4DB7C6C1280638B4006445F0 /* ColumnView.swift in Sources */,
 				4DE575F42800FFF8003ACE12 /* ContentView.swift in Sources */,
+				4DB7C6C328083A52006445F0 /* TableViewModel.swift in Sources */,
 				4DE5760B28011EF7003ACE12 /* CompareList.swift in Sources */,
 				4DE575F22800FFF8003ACE12 /* WhichIsApp.swift in Sources */,
 			);

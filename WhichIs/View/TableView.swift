@@ -8,32 +8,45 @@
 import SwiftUI
 
 struct TableView: View {
+    @StateObject private var viewModel = TableViewModel()
     static let columnPadding: CGFloat = 5
     let columnWidth = (UIScreen.screenWidth / 3 ) - columnPadding
-    var table = CompareTable()
-
     
-    init() {
-//        table.resetCol()
+    init () {
+        
     }
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: true) {
-            ScrollView(.vertical, showsIndicators: true) {
-                VStack(spacing:0) {
-                    ForEach( 0 ..< table.columns.count) { rownum in
-                        // 行数
-                        HStack(spacing:0) {
-                            ForEach( 0 ..< table.columns[rownum].count) { linenum in
-                                // 列数
-                                ColumnView(column: table.columns[rownum][linenum], columnWidth: columnWidth)
+        ZStack {
+            ScrollView(.horizontal, showsIndicators: true) {
+                ScrollView(.vertical, showsIndicators: true) {
+                    VStack(spacing:0) {
+                        ForEach( 0 ..< viewModel.compareTable.columns.count, id:\.self) { rownum in
+                            // 行数
+                            // id:\.self　をつけないと変更されない。foreach参照
+                            HStack(spacing:0) {
+                                ForEach( 0 ..< viewModel.compareTable.columns[rownum].count, id:\.self) { linenum in
+                                    // 列数
+                                    ColumnView(column: viewModel.compareTable.columns[rownum][linenum], columnWidth: columnWidth)
+                                }
                             }
                         }
                     }
                 }
             }
+            .padding()
+            
+            HStack() {
+                Button("BUtton") {
+                    // action
+                    viewModel.deleteLine(lineIndex: 2)
+                }
+                Button("row") {
+                    // action
+                    viewModel.deleteRow(rowIndex: 1)
+                }
+            }
         }
-        .padding()
     }
 }
 

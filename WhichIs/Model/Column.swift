@@ -10,7 +10,7 @@ import RealmSwift
 import SwiftUI
 
 //
-class Column: Decodable {
+struct Column: Decodable {
     var content: String = "hoge"
     var fontColor: String = "normal"
     var backgroundColor: String = "strong"
@@ -53,9 +53,5 @@ class Column: Decodable {
             return Color(.white)
             
         }
-    }
-    
-    func setTitleColmun() {
-        self.backgroundColor = "gray"
     }
 }

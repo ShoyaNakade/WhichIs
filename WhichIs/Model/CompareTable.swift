@@ -9,7 +9,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class CompareTable: Decodable, Identifiable {
+struct CompareTable: Decodable, Identifiable {
     var id = ""
     var createdAt = Date()
     var title = "hoge"
@@ -34,14 +34,14 @@ class CompareTable: Decodable, Identifiable {
 }
 
 extension CompareTable {
-    func resetCol() {
+    mutating func resetCol() {
         self.columns = [
                 [Column(content: "/"), Column(content:"head1"), Column(content: "head2")],
                 [Column(), Column(), Column()],
             ]
     }
     
-    func setNormalTable() {
+    mutating func setNormalTable() {
         let columnLine = columns.count
         let columnRow  = columns[0].count
         
