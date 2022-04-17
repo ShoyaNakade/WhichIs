@@ -19,12 +19,11 @@ final class TableViewModel: ObservableObject {
         for line in 0 ..< compareTable.columns.count {
             compareTable.columns[line].remove(at: rowIndex)
         }
-        print(compareTable.columns)
     }
     
     func deleteLine(lineIndex: Int) {
         compareTable.columns.remove(at: lineIndex)
-        print(compareTable.columns)
+//        compareTable.columns.removeAll()
     }
     
     func fetchTotalData() {

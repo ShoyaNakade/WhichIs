@@ -11,23 +11,48 @@ struct TableView: View {
     @StateObject private var viewModel = TableViewModel()
     static let columnPadding: CGFloat = 5
     let columnWidth = (UIScreen.screenWidth / 3 ) - columnPadding
+    @State var isDeleteMode: Bool
     
     init () {
-        
+        isDeleteMode = false
     }
     
     var body: some View {
-        ZStack {
+        VStack() {
+            Text("aaaa")
+            Button {
+                isDeleteMode.toggle()
+            } label: {
+                Image(systemName: "pencil.circle.fill")
+            }
+            
             ScrollView(.horizontal, showsIndicators: true) {
                 ScrollView(.vertical, showsIndicators: true) {
                     VStack(spacing:0) {
-                        ForEach( 0 ..< viewModel.compareTable.columns.count, id:\.self) { rownum in
+                        ForEach( 0 ..< viewModel.compareTable.columns.count, id:\.self) { lineNum in
                             // 行数
                             // id:\.self　をつけないと変更されない。foreach参照
                             HStack(spacing:0) {
-                                ForEach( 0 ..< viewModel.compareTable.columns[rownum].count, id:\.self) { linenum in
+                                if isDeleteMode {
+                                    if lineNum != 0 {
+                                        Button {
+                                            // action
+                                            viewModel.deleteLine(lineIndex: lineNum)
+                                            print("linnum: \(lineNum)")
+                                        } label: {
+                                            Text("\(lineNum)")
+                                            Image(systemName: "minus.circle")
+                                                .padding(.trailing,10)
+                                        }
+                                    }
+                                    else {
+                                        Image(systemName: "minus.circle.fill")
+                                            .padding(.trailing,10)
+                                    }
+                                }
+                                ForEach( 0 ..< viewModel.compareTable.columns[lineNum].count, id:\.self) { rowNum in
                                     // 列数
-                                    ColumnView(column: viewModel.compareTable.columns[rownum][linenum], columnWidth: columnWidth)
+                                    ColumnView(column: viewModel.compareTable.columns[lineNum][rowNum], columnWidth: columnWidth)
                                 }
                             }
                         }
@@ -35,17 +60,6 @@ struct TableView: View {
                 }
             }
             .padding()
-            
-            HStack() {
-                Button("BUtton") {
-                    // action
-                    viewModel.deleteLine(lineIndex: 2)
-                }
-                Button("row") {
-                    // action
-                    viewModel.deleteRow(rowIndex: 1)
-                }
-            }
         }
     }
 }

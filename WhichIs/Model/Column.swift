@@ -10,12 +10,19 @@ import RealmSwift
 import SwiftUI
 
 //
-struct Column: Decodable {
-    var content: String = "hoge"
+class Column {
+    @Published var content: String = "　"
     var fontColor: String = "normal"
     var backgroundColor: String = "strong"
     
+//    init(content: String) {
+//        self._content = State(initialValue: content)
+//    }
     init() {
+        
+    }
+    init( content: String) {
+        self.content = content
     }
     
     init( content: String, fontColor: String, backroundColor: String) {
@@ -24,9 +31,6 @@ struct Column: Decodable {
         self.backgroundColor = backroundColor
     }
     
-    init( content: String) {
-        self.content = content
-    }
     
     
     func fontColorToUI() -> Color {

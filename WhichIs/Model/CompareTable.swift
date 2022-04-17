@@ -9,7 +9,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-struct CompareTable: Decodable, Identifiable {
+struct CompareTable: Identifiable {
     var id = ""
     var createdAt = Date()
     var title = "hoge"
